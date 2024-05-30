@@ -82,8 +82,18 @@ This is a simple TODO list application built with React and Node.js, using Postg
 2. Create a Jest configuration file `jest.config.js`
     ```javascript
     module.exports = {
-      preset: 'ts-jest',
-      testEnvironment: 'node',
+      preset: "ts-jest",
+      testEnvironment: "node",
+      transform: {
+        "^.+\\.ts$": "ts-jest",
+      },
+      transformIgnorePatterns: ["<rootDir>/node_modules/"],
+      moduleFileExtensions: ["ts", "js"],
+      globals: {
+        "ts-jest": {
+          tsconfig: "tsconfig.json",
+        },
+      },
     };
     ```
 
@@ -91,16 +101,33 @@ This is a simple TODO list application built with React and Node.js, using Postg
 
     Example: `src/tests/duties.test.ts`
     ```typescript
-    import request from 'supertest';
-    import { app } from '../index';
-
+    const request = require('supertest');
+    const { app } = require('../index');
+    const { Client } = require('pg');
+    
+    const client = new Client({
+      user: 'postgres',
+      host: 'localhost',
+      database: 'duties_db',
+      password: 'root',
+      port: 5432,
+    });
+    
+    beforeAll(async () => {
+      await client.connect();
+    });
+    
+    afterAll(async () => {
+      await client.end();
+    });
+    
     describe('Duties API', () => {
       it('should fetch all duties', async () => {
         const response = await request(app).get('/duties');
         expect(response.status).toBe(200);
         expect(response.body).toBeInstanceOf(Array);
       });
-
+    
       it('should add a new duty', async () => {
         const response = await request(app)
           .post('/duties')
@@ -109,7 +136,32 @@ This is a simple TODO list application built with React and Node.js, using Postg
         expect(response.body).toHaveProperty('id');
         expect(response.body).toHaveProperty('name', 'New Duty');
       });
+    
+      it('should update a duty', async () => {
+        const addResponse = await request(app)
+          .post('/duties')
+          .send({ name: 'Duty to Update' });
+        const { id } = addResponse.body;
+    
+        const response = await request(app)
+          .put(`/duties/${id}`)
+          .send({ name: 'Updated Duty' });
+        expect(response.status).toBe(200);
+        expect(response.body).toHaveProperty('name', 'Updated Duty');
+      });
+    
+      it('should delete a duty', async () => {
+        const addResponse = await request(app)
+          .post('/duties')
+          .send({ name: 'Duty to Delete' });
+        const { id } = addResponse.body;
+    
+        const response = await request(app)
+          .delete(`/duties/${id}`);
+        expect(response.status).toBe(204);
+      });
     });
+
     ```
 
 4. Run the tests
@@ -127,8 +179,13 @@ This is a simple TODO list application built with React and Node.js, using Postg
 2. Create a Jest configuration file `jest.config.js`
     ```javascript
     module.exports = {
-      preset: 'ts-jest',
-      testEnvironment: 'jsdom',
+      preset: "ts-jest",
+      testEnvironment: "jsdom",
+      moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
+      transform: {
+        "^.+\\.tsx?$": "ts-jest",
+      },
+      setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
     };
     ```
 
@@ -136,23 +193,36 @@ This is a simple TODO list application built with React and Node.js, using Postg
 
     Example: `src/tests/DutyForm.test.tsx`
     ```typescript
-    import React from 'react';
-    import { render, fireEvent } from '@testing-library/react';
-    import DutyForm from '../components/DutyForm';
-
-    test('renders DutyForm and submits data', () => {
+    import React from "react";
+    import { render, fireEvent } from "@testing-library/react";
+    import DutyForm from "../components/DutyForm";
+    
+    test("renders DutyForm and submits data", () => {
       const handleAddDuty = jest.fn();
       const { getByPlaceholderText, getByText } = render(
         <DutyForm onAddDuty={handleAddDuty} disabled={false} />
       );
-
-      const input = getByPlaceholderText('Add a new duty');
-      const button = getByText('Add Duty');
-
-      fireEvent.change(input, { target: { value: 'Test Duty' } });
+    
+      const input = getByPlaceholderText("Add a new duty");
+      const button = getByText("Add Duty");
+    
+      fireEvent.change(input, { target: { value: "Test Duty" } });
       fireEvent.click(button);
-
-      expect(handleAddDuty).toHaveBeenCalledWith('Test Duty');
+    
+      expect(handleAddDuty).toHaveBeenCalledWith("Test Duty");
+    });
+    
+    test("disables the form when disabled prop is true", () => {
+      const handleAddDuty = jest.fn();
+      const { getByPlaceholderText, getByText } = render(
+        <DutyForm onAddDuty={handleAddDuty} disabled={true} />
+      );
+    
+      const input = getByPlaceholderText("Add a new duty");
+      const button = getByText("Add Duty");
+    
+      expect(input).toBeDisabled();
+      expect(button).toBeDisabled();
     });
     ```
 
@@ -165,3 +235,4 @@ This is a simple TODO list application built with React and Node.js, using Postg
 
 - Ensure that the backend is running on port 3001 and the frontend on port 3000 for proper communication.
 - If you encounter any issues, check the console for errors and ensure that all services (PostgreSQL, backend, and frontend) are running correctly.
+- Tests are already created.
