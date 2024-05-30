@@ -1,0 +1,104 @@
+.layout {
+  min-height: 100vh;
+  background: linear-gradient(to right, #ece9e6, #ffffff);
+}
+
+.header {
+  background: #001529;
+  padding: 0;
+}
+
+.content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="text"],
+.ant-input {
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+
+button,
+.ant-btn {
+  padding: 0.5rem 1rem;
+}
+
+.ant-list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.ant-card {
+  margin: 0.5rem;
+  margin-bottom: 40px;
+  width: 250px;
+  height: 150px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #a8d7fe;
+  border-radius: 8px;
+}
+
+.duty-form {
+  margin: 20px;
+}
+
+.duty-input {
+  height: 40px;
+}
+
+.add-duty-button {
+  margin-left: 10px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.action-button {
+  padding: 0 8px;
+  margin-right: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.action-button:hover {
+  border-color: #40a9ff;
+  color: #40a9ff;
+}
+
+.error-message {
+  color: red;
+  font-size: 1.5em;
+  margin-top: 20px;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.ant-spin {
+  font-size: 48px;
+}
