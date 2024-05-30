@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal, Input, Button, message } from 'antd';
 import { Duty } from '../interfaces/Duty';
 
@@ -14,6 +14,10 @@ interface Props {
 const EditDutyModal: React.FC<Props> = ({ duty, visible, onUpdateDuty, onCancel }) => {
   // State to manage the name of the duty being edited
   const [name, setName] = useState(duty.name);
+
+  useEffect(() => {
+    setName(duty.name); // Reset the name state when the duty prop changes
+  }, [duty]);
 
   // Function to handle updating the duty
   const handleUpdate = async () => {
@@ -38,11 +42,15 @@ const EditDutyModal: React.FC<Props> = ({ duty, visible, onUpdateDuty, onCancel 
 
       const updatedDuty = await response.json();
       onUpdateDuty(updatedDuty);
-      onCancel();
-      message.success('Duty updated successfully');
-      window.location.reload();
+      message.success('Updating Duty...');
+      onCancel(); // Close the modal after updating
+
+      // Timeout to make it more realistic
+      setTimeout(() => {
+        window.location.reload();
+      }, 1250);
     } catch (error) {
-      message.error(`Failed to update duty: ${message}`);
+      message.error(`Failed to update duty`);
     }
   };
 
