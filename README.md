@@ -1,3 +1,5 @@
+# DEPRECATED BRANCH, CHECK MAIN BRANCH INSTEAD
+
 # TODO List Application
 
 This is a simple TODO list application built with React and Node.js, using PostgreSQL for the database.
