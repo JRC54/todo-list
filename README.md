@@ -66,7 +66,7 @@ This is a simple TODO list application built with React and Node.js, using Postg
 #### Main Screen
 ![main](https://github.com/JRC54/todo-list/assets/111510481/306390dd-86ca-4a04-a9fa-d5454f80a3d2)
 #### Form
-![form](https://github.com/JRC54/todo-list/assets/111510481/0354de18-1eb1-423e-a675-db9a04d80159)
+![form](https://github.com/JRC54/todo-list/assets/111510481/bdf3ddb1-8477-4755-a3fe-aee8d959a08e)
 #### Adding a Duty
 ![duty](https://github.com/JRC54/todo-list/assets/111510481/871d205c-d474-4d24-bbc2-176b2b68dd15)
 #### Viewing a Duty
