@@ -6,6 +6,9 @@ This is a simple TODO list application built with React and Node.js, using Postg
 
 - Node.js
 - PostgreSQL
+- Typescript
+- React
+- Visual Studio Code / IntelliJ
 
 ## Setup Instructions
 
