@@ -12,24 +12,28 @@ This is a simple TODO list application built with React and Node.js, using Postg
 
 ## Setup Instructions
 
-### Backend
 
-1. Clone the repository
+
+### Backend & Frontend
+
+1. Clone the repository, both Backend and Frontend will be available there.
     ```sh
     git clone https://github.com/JRC54/todo-list.git
     ```
+    
+### Backend
 
-2. Install dependencies
+1. Install dependencies
     ```sh
     npm install
     ```
 
-3. Download PostgreSQL 16
+2. Download PostgreSQL 16
     ```sh
     https://www.postgresql.org/download/
     ```
 
-4. Configure your database in `src/init/initDatabase.ts`
+3. Configure your database in `src/init/initDatabase.ts`
     ```javascript
     const client = new Client({
       user: 'postgres',
@@ -40,20 +44,19 @@ This is a simple TODO list application built with React and Node.js, using Postg
     });
     ```
 
-5. Run the backend server
+4. Run the backend server
     ```sh
     npx ts-node .\src\index.ts
     ```
 
 ### Frontend
-1. Download and navigate to the frontend directory
 
-2. Install dependencies
+1. Install dependencies
     ```sh
     npm install
     ```
 
-3. Run the frontend application
+2. Run the frontend application
     ```sh
     npm start
     ```
