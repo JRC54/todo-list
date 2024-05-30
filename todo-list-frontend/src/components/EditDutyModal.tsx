@@ -10,6 +10,8 @@ interface Props {
   onCancel: () => void; // Function to handle cancelling the edit
 }
 
+const url = 'http://localhost:3001/duties/';
+
 // EditDutyModal component definition
 const EditDutyModal: React.FC<Props> = ({ duty, visible, onUpdateDuty, onCancel }) => {
   // State to manage the name of the duty being edited
@@ -27,7 +29,7 @@ const EditDutyModal: React.FC<Props> = ({ duty, visible, onUpdateDuty, onCancel 
       return;
     }
     try {
-      const response = await fetch(`http://localhost:3001/duties/${duty.id}`, {
+      const response = await fetch(`${url}${duty.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

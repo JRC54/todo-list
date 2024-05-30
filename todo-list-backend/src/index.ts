@@ -7,6 +7,7 @@ import { initDatabase } from "./init/initDatabase";
 
 const app = express(); // Create an Express application
 const port = 3001; // Define the port to run the server on
+const url = 'http://localhost:';
 
 app.use(bodyParser.json()); // Use body-parser to parse JSON bodies
 app.use(cors()); // Enable CORS for all routes
@@ -40,7 +41,7 @@ initDatabase()
 
         // Start the server
         app.listen(port, () => {
-          console.log(`Server is running on http://localhost:${port}`);
+          console.log(`Server is running on ${url}${port}`);
         });
       })
       .catch((err) => {
