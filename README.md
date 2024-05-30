@@ -58,7 +58,7 @@ This is a simple TODO list application built with React and Node.js, using Postg
 
 ### Screenshots
 
-![Main Screen](![main](https://github.com/JRC54/todo-list/assets/111510481/0f1fc34e-3e70-4174-8542-acb197fcb98d))
+![main](https://github.com/JRC54/todo-list/assets/111510481/306390dd-86ca-4a04-a9fa-d5454f80a3d2)
 
 ## Testing
 
