@@ -43,7 +43,6 @@ This is a simple TODO list application built with React and Node.js, using Postg
     ```
 
 ### Frontend
-
 1. Download and navigate to the frontend directory
 
 2. Install dependencies
@@ -58,14 +57,23 @@ This is a simple TODO list application built with React and Node.js, using Postg
 
 ### Screenshots
 
+#### Main Screen
 ![main](https://github.com/JRC54/todo-list/assets/111510481/306390dd-86ca-4a04-a9fa-d5454f80a3d2)
+#### Form
 ![form](https://github.com/JRC54/todo-list/assets/111510481/0354de18-1eb1-423e-a675-db9a04d80159)
+#### Adding a Duty
 ![duty](https://github.com/JRC54/todo-list/assets/111510481/871d205c-d474-4d24-bbc2-176b2b68dd15)
+#### Viewing a Duty
 ![view](https://github.com/JRC54/todo-list/assets/111510481/3143cdf8-2824-4618-aba1-24e9e5b7a958)
+#### Editing a Duty 1
 ![edit1](https://github.com/JRC54/todo-list/assets/111510481/011692d5-a288-486e-a474-8e09270a21dd)
+#### Editing a Duty 2
 ![edit2](https://github.com/JRC54/todo-list/assets/111510481/fcb9416f-519e-42c9-811c-3f32974d646a)
+#### Deleting a Duty 1
 ![delete](https://github.com/JRC54/todo-list/assets/111510481/0e30af51-f9ea-48e2-91d3-f7080b4f3760)
+#### Deleting a Duty 2
 ![delete2](https://github.com/JRC54/todo-list/assets/111510481/eb15132d-eabf-4424-8e39-6c80898e70fe)
+#### Connection with the database error incase it's turned off or doesn't exist
 ![errorConnection](https://github.com/JRC54/todo-list/assets/111510481/31171a64-daf6-41c3-ad35-cccf5d30f240)
 
 
@@ -73,6 +81,8 @@ This is a simple TODO list application built with React and Node.js, using Postg
 ## Testing
 
 ### Backend Tests
+
+#### The tests/dependencies have been prepared already, this is only in case you want to create another tests.
 
 1. Install Jest and other testing dependencies
     ```sh
@@ -170,6 +180,8 @@ This is a simple TODO list application built with React and Node.js, using Postg
     ```
 
 ### Frontend Tests
+
+#### The tests/dependencies have been prepared already, this is only in case you want to create another tests.
 
 1. Install Jest and other testing dependencies
     ```sh
