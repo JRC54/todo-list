@@ -1,6 +1,6 @@
 # TODO List Application
 
-This is a simple TODO list application built with React and Node.js, using PostgreSQL for the database.
+This is a To-Do list application built with React and Node.js, using PostgreSQL for the database.
 
 ## Requirements
 
@@ -8,7 +8,7 @@ This is a simple TODO list application built with React and Node.js, using Postg
 - PostgreSQL
 - Typescript
 - React
-- Visual Studio Code / IntelliJ
+- An IDE like Visual Studio Code or IntelliJ
 
 ## Setup Instructions
 
@@ -16,7 +16,7 @@ This is a simple TODO list application built with React and Node.js, using Postg
 
 ### Backend & Frontend
 
-1. Clone the repository, both Backend and Frontend will be available there.
+1. Clone the repository, both Backend and Frontend will be available there with their respective names.
     ```sh
     git clone https://github.com/JRC54/todo-list.git
     ```
@@ -256,4 +256,3 @@ https://github.com/JRC54/todo-list/assets/111510481/031bcfd0-9862-42d4-a5fc-3f61
 
 - Ensure that the backend is running on port 3001 and the frontend on port 3000 for proper communication.
 - If you encounter any issues, check the console for errors and ensure that all services (PostgreSQL, backend, and frontend) are running correctly.
-- Tests are already created.
