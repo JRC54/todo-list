@@ -17,8 +17,9 @@ const EditDutyModal: React.FC<Props> = ({ duty, visible, onUpdateDuty, onCancel 
   // State to manage the name of the duty being edited
   const [name, setName] = useState(duty.name);
 
+  // Reset the name state when the duty prop changes
   useEffect(() => {
-    setName(duty.name); // Reset the name state when the duty prop changes
+    setName(duty.name); 
   }, [duty]);
 
   // Function to handle updating the duty
@@ -45,9 +46,9 @@ const EditDutyModal: React.FC<Props> = ({ duty, visible, onUpdateDuty, onCancel 
       const updatedDuty = await response.json();
       onUpdateDuty(updatedDuty);
       message.success('Updating Duty...');
-      onCancel(); // Close the modal after updating
+      onCancel();
 
-      // Timeout to make it more realistic
+      // Timeout to make the update more realistic
       setTimeout(() => {
         window.location.reload();
       }, 1250);

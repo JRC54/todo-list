@@ -12,7 +12,6 @@ router.get("/", async (req, res) => {
     // Send the result as JSON
     res.json(result.rows);
   } catch (err) {
-    // Log any errors and send a 500 status
     console.error("Error fetching duties:", err);
     res.status(500).json({ error: "Internal Server Error" });
   }
@@ -30,7 +29,6 @@ router.post("/", async (req, res) => {
     // Send the new duty as JSON
     res.json(result.rows[0]);
   } catch (err) {
-    // Log any errors and send a 500 status
     console.error("Error adding duty:", err);
     res.status(500).json({ error: "Internal Server Error" });
   }
@@ -49,7 +47,6 @@ router.put("/:id", async (req, res) => {
     // Send the updated duty as JSON
     res.json(result.rows[0]);
   } catch (err) {
-    // Log any errors and send a 500 status
     console.error("Error updating duty:", err);
     res.status(500).json({ error: "Internal Server Error" });
   }
@@ -64,7 +61,6 @@ router.delete("/:id", async (req, res) => {
     // Send a 204 status indicating successful deletion
     res.sendStatus(204);
   } catch (err) {
-    // Log any errors and send a 500 status
     console.error("Error deleting duty:", err);
     res.status(500).json({ error: "Internal Server Error" });
   }

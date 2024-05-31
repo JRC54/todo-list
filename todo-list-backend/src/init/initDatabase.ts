@@ -12,7 +12,6 @@ const client = new Client({
 // Function to initialize the database
 export const initDatabase = async () => {
   try {
-    // Connect to the PostgreSQL client
     await client.connect();
 
     // Check if the duties_db database exists
@@ -27,11 +26,9 @@ export const initDatabase = async () => {
       console.log("Database duties_db already exists.");
     }
   } catch (err) {
-    // Log any errors during the database check/creation
     console.error("Error checking/creating database:", (err as Error).message);
     throw err;
   } finally {
-    // Disconnect the client
     await client.end();
   }
 
@@ -45,9 +42,7 @@ export const initDatabase = async () => {
   });
 
   try {
-    // Connect to the dutiesClient
     await dutiesClient.connect();
-
     // Create the duties table if it does not exist
     await dutiesClient.query(`
           CREATE TABLE IF NOT EXISTS duties (
@@ -57,11 +52,9 @@ export const initDatabase = async () => {
         `);
     console.log("Table duties created or already exists.");
   } catch (err) {
-    // Log any errors during the table check/creation
     console.error("Error checking/creating table:", (err as Error).message);
     throw err;
   } finally {
-    // Disconnect the dutiesClient
     await dutiesClient.end();
   }
 };
