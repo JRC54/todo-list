@@ -79,7 +79,7 @@ This is a To-Do list application built with React and Node.js, using PostgreSQL 
 ![delete](https://github.com/JRC54/todo-list/assets/111510481/0e30af51-f9ea-48e2-91d3-f7080b4f3760)
 #### Deleting a Duty 2
 ![delete2](https://github.com/JRC54/todo-list/assets/111510481/eb15132d-eabf-4424-8e39-6c80898e70fe)
-#### Connection with the database error incase it's turned off or doesn't exist
+#### Connection with the database error incase it's turned off
 ![errorConnection](https://github.com/JRC54/todo-list/assets/111510481/31171a64-daf6-41c3-ad35-cccf5d30f240)
 #### DEMO
 
