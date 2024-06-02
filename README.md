@@ -47,7 +47,9 @@ This is a To-Do list application built with React and Node.js, using PostgreSQL 
 4. Run the backend server
     ```sh
     npx ts-node .\src\index.ts
+    ```
     or
+    ```sh
     npm start
     ```
 
